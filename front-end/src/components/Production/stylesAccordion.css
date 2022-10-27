@@ -1,0 +1,33 @@
+.accordion-button::after {
+    background-image: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+    color: red;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #00adb5;
+}
+
+.example-track {
+    background-color: rgb(214, 214, 214);
+    height: 0.5rem;
+    margin-top: 23px;
+    border-radius: 10px;
+}
+
+.thumb {
+    padding: 17px 0px 17px 0px;
+}
+
+.thumb-0 {
+    position: absolute;
+    top: 0%;
+}
+
+.thumb-1 {
+    position: absolute;
+    bottom: 0%;
+}
