@@ -9,17 +9,23 @@
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section list major frameworks/libraries used to bootstrap my project
+
+#### Front-end
 * ![React][React.js]
 * ![MUI][MUI.BADGE]
-* ![NetBeans IDE][NETBEAN.BADGE]
 * ![HTML5][HTML5.BADGE]
-* ![Java][Java.BADGE]
 * ![JavaScript][JavaScript.BADGE]
 * ![Redux][Redux.BADGE]
+* 
+#### Back-end
+* ![Java][Java.BADGE]
 * ![JERSEY.BADGE]
+* ![MicrosoftSQLServer][MicrosoftSQLServer.BADGE]
 
 ## About The Project
+
+This section list some of project's screens and functions
 
 ### Welcome page
 
@@ -63,3 +69,4 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [JavaScript.BADGE]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [Redux.BADGE]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
 [JERSEY.BADGE]: https://img.shields.io/badge/%60-JERSEY-blue
+[MicrosoftSQLServer.BADGE]: https://img.shields.io/badge/Microsoft%20SQL%20Sever-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white
