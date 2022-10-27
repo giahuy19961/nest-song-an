@@ -1,3 +1,11 @@
+# Welcome to Nest Song An Repository
+
+### You will find in this repo the following stuff
+
+* Nest-song-an's front-end source code
+* Nest-song-an's back-end source code 
+* Nest-song-an's live demo 
+
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -39,6 +47,10 @@ This section should list any major frameworks/libraries used to bootstrap your p
 ### Add new product
 
 ![Add new product](https://github.com/AT-QHUY/image/blob/main/add-product.png?raw=true)
+
+#### Connect me via nqhuy.toan.cr@gmail.com
+
+#### Copyright &#169; 2022 AT-QHUY 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
