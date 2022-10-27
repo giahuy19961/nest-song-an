@@ -17,11 +17,15 @@ This section list major frameworks/libraries used to bootstrap my project
 * ![HTML5][HTML5.BADGE]
 * ![JavaScript][JavaScript.BADGE]
 * ![Redux][Redux.BADGE]
-* 
+
 #### Back-end
 * ![Java][Java.BADGE]
 * ![JERSEY.BADGE]
 * ![MicrosoftSQLServer][MicrosoftSQLServer.BADGE]
+
+#### Hosting
+* ![AWS][AWS.BADGE]
+
 
 ## About The Project
 
@@ -70,3 +74,4 @@ This section list some of project's screens and functions
 [Redux.BADGE]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
 [JERSEY.BADGE]: https://img.shields.io/badge/%60-JERSEY-blue
 [MicrosoftSQLServer.BADGE]: https://img.shields.io/badge/Microsoft%20SQL%20Sever-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white
+[AWS.BADGE]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
