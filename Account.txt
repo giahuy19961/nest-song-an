@@ -1,0 +1,7 @@
+- ADMIN ACCOUNT:
+  + Username: admin
+  + Password: 123456789
+  
+- USER ACCOUNT:
+  + Username: customer
+  + Password: 123456789
