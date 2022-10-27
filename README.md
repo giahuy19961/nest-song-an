@@ -12,6 +12,10 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## About The Project
 
+### Welcome page
+
+![welcome](https://github.com/AT-QHUY/image/blob/main/Ảnh%20chụp%20màn%20hình%202022-10-27%20182515.png?raw=true)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
