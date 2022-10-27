@@ -19,4 +19,4 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [Java.BADGE]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white
 [JavaScript.BADGE]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [Redux.BADGE]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
-[JERSEY.BADGE]: https://img.shields.io/badge/%20-JERSEY-blue
+[JERSEY.BADGE]: https://img.shields.io/badge/%60-JERSEY-blue
