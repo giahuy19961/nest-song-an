@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
@@ -23,6 +23,7 @@ import { useState } from "react";
 import { Products } from "./pages/Admin/product";
 import Add from "@mui/icons-material/Add";
 import AdminLayout from "./components/layout/AdminLayout";
+import { CreateProduct } from "./pages/Admin/product/create";
 
 export const App = () => {
     const [name, setName] = useState("Bán hàng");
@@ -45,7 +46,10 @@ export const App = () => {
                     <Routes>
                         <Route path="/dashboard" element={<AdminLayout />} >
                             <Route path="" element={<DashBoard />} index={true} />
-                            <Route path="product" element={<Products />} />
+                            <Route path="product" element={<Outlet />} >
+                                <Route path="" element={<Products />} index={true} />
+                                <Route path="create" element={<CreateProduct />} />
+                            </Route>
                         </Route>
                         <Route path="/" element={<Home />} />
                         <Route path="/sign-in" element={<SignIn />} />
