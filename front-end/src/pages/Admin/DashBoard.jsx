@@ -39,7 +39,8 @@ export const DashBoard = () => {
   };
 
   return (
-    <AdminLayout setRerender={setIsRerender}>
+    // <AdminLayout setRerender={setIsRerender}>
+    <>
       <Grid container spacing={3}>
         {product.map((item) => (
           <HorizontalProductDetail
@@ -75,6 +76,7 @@ export const DashBoard = () => {
         successToastStatus={successToastStatus}
         setSuccessToastStatus={setSuccessToastStatus}
       ></ToastSuccess>
-    </AdminLayout>
+    {/* </AdminLayout> */}
+    </>
   );
 };

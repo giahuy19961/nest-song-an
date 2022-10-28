@@ -20,6 +20,9 @@ import { theme } from "./assets/theme";
 import { Order } from "./pages/Order/Order";
 import { ToastPageChange } from "./components/Toast";
 import { useState } from "react";
+import { Products } from "./pages/Admin/product";
+import Add from "@mui/icons-material/Add";
+import AdminLayout from "./components/layout/AdminLayout";
 
 export const App = () => {
     const [name, setName] = useState("Bán hàng");
@@ -40,7 +43,10 @@ export const App = () => {
                     <Loading />
                 ) : (
                     <Routes>
-                        <Route path="/dashboard" element={<DashBoard />} />
+                        <Route path="/dashboard" element={<AdminLayout />} >
+                            <Route path="" element={<DashBoard />} index={true} />
+                            <Route path="product" element={<Products />} />
+                        </Route>
                         <Route path="/" element={<Home />} />
                         <Route path="/sign-in" element={<SignIn />} />
                         <Route path="/sign-up" element={<SignUp />} />

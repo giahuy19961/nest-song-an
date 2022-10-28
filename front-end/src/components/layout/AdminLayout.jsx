@@ -21,6 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import {
     Button,
     FormControl,
+    Grid,
     InputLabel,
     MenuItem,
     Select,
@@ -36,6 +37,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useForm, Controller } from "react-hook-form";
 import { productApi } from "../../api/productApi";
 import { ToastPageChange } from "../Toast";
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -343,9 +345,14 @@ export default function AdminLayout({ children, setRerender }) {
             <Box
                 component="main"
                 sx={{ flexGrow: 1, p: 3, backgroundColor: "#d9eeef" }}
+                minHeight="100vh"
             >
                 <DrawerHeader />
-                {children}
+                <Grid container direction={'column'} spacing={"24px"}>
+                    <Outlet/>
+                </Grid>
+            
+                
             </Box>
 
             <Dialog open={formOpen} onClose={handleClose}>
