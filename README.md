@@ -69,6 +69,6 @@ This section list some of project's screens and functions
 [Java.BADGE]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white
 [JavaScript.BADGE]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [Redux.BADGE]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
-[JERSEY.BADGE]: https://img.shields.io/badge/%60-JERSEY-blue
+[JERSEY.BADGE]: https://img.shields.io/badge/%60-JERSEY_API-blue
 [MicrosoftSQLServer.BADGE]: https://img.shields.io/badge/Microsoft%20SQL%20Sever-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white
 [AWS.BADGE]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
