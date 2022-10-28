@@ -12,20 +12,17 @@
 This section list major frameworks/libraries used to bootstrap my project
 
 #### Front-end
-* ![React][React.js]
+* ![React][React.js]![JavaScript][JavaScript.BADGE]![Redux][Redux.BADGE]
 * ![MUI][MUI.BADGE]
-* ![HTML5][HTML5.BADGE]
-* ![JavaScript][JavaScript.BADGE]
-* ![Redux][Redux.BADGE]
 
 #### Back-end
-* ![Java][Java.BADGE]
-* ![JERSEY.BADGE]
+* ![Java][Java.BADGE] ![JERSEY.BADGE]
+
+### Database
 * ![MicrosoftSQLServer][MicrosoftSQLServer.BADGE]
 
 #### Hosting
 * ![AWS][AWS.BADGE]
-
 
 ## About The Project
 
