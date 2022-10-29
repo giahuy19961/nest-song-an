@@ -5,7 +5,7 @@ const adminAxios = axios.create({
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
-        // Accept: "*/*",
+        Accept: "*/*",
         // "Content-Type": "text/html; charset=UTF-8",
         // "Content-Type": "multipart/form-data; boundary=something",
     },

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
-const renderTextField = ({ fieldProps, controllerProps, errors }) => {
+const renderTextField = ({ fieldProps, controllerProps }) => {
   return (
     <Controller
       {...controllerProps}
@@ -21,12 +21,13 @@ const renderTextField = ({ fieldProps, controllerProps, errors }) => {
   );
 };
 
-const renderSelect = ({ fieldProps, controllerProps, errors }) => {
+const renderSelect = ({ fieldProps, controllerProps }) => {
   const { options, ...restFieldProps } = fieldProps;
+
   return (
     <Controller
       {...controllerProps}
-      render={({ ...field }) => {
+      render={({field }) => {
         return (
           <FormControl fullWidth label={restFieldProps.label}>
             <InputLabel
@@ -40,11 +41,12 @@ const renderSelect = ({ fieldProps, controllerProps, errors }) => {
             </InputLabel>
             <Select {...field} {...restFieldProps}>
               {Boolean(options) && options.length !== 0 ? (
-                options.map((option, index) => (
+                options.map((option, index) =>  {
+                  return(
                   <MenuItem key={index} value={option.value}>
                     {option.label}
                   </MenuItem>
-                ))
+                )})
               ) : (
                 <MenuItem disabled>No Items Found</MenuItem>
               )}
@@ -64,27 +66,58 @@ const renderSelect = ({ fieldProps, controllerProps, errors }) => {
   );
 };
 
-const renderAutoComplete = ({ fieldProps, controllerProps, errors }) => {
+const renderAutoComplete = ({ fieldProps, controllerProps }) => {
   return (
     <Controller
       {...controllerProps}
-      render={({ ...field }) => {
+      render={({ field }) => {
         return <Autocomplete fullWidth {...field} {...fieldProps} />;
       }}
     />
   );
 };
 
+const renderUpload = ({fieldProps, controllerProps}) =>{
+  const { setValue, ...restFieldProps } = fieldProps;
+  return (
+    <Controller
+      {...controllerProps}
+      render={({field:{ onChange,value,...rest} }) => {
+        const handleChange = ({target})=>{
+          //Maybe call process upload or set directory files
+          setValue(controllerProps.name,target.files[0])
+        }
+        return (
+          <FormControl fullWidth label={restFieldProps.label} >
+            <InputLabel
+              style={{
+                color: restFieldProps?.error
+                  ? "var(--bs-danger)"
+                  : "var(--bs-gray)",
+              }}
+            >
+              {restFieldProps.label}
+            </InputLabel>
+           <TextField type='file' onChange={handleChange} {...rest} {...fieldProps}/>
+          </FormControl>
+        );
+      }}
+    />
+  );
+}
+
 const FIELD_TYPES = {
   TEXT: "text",
   SELECT: "select",
   AUTOCOMPLETE: "autocomplete",
+  UPLOAD:"upload"
 };
 
 const FORM_MAPPING = {
   [FIELD_TYPES.TEXT]: renderTextField,
   [FIELD_TYPES.SELECT]: renderSelect,
-  [FIELD_TYPES.AUTOCOMPLETE]: renderSelect,
+  [FIELD_TYPES.AUTOCOMPLETE]: renderAutoComplete,
+  [FIELD_TYPES.UPLOAD] : renderUpload
 };
 
 export const AppForm = ({ fields }) => {

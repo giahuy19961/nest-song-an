@@ -1,17 +1,22 @@
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { useMemo } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { AppButton } from "../../../components/Element/Button";
 import { AppForm } from "../../../components/Form";
 import { getOptions } from "../../../utils/getOptions";
 import { useGetCategories } from "./api/hooks";
 
-export function CreateProduct() {
+export function EditProduct() {
   const methods = useForm();
+  const {id} = useParams();
   const { data: categories, loading: loadingCategories } = useGetCategories({});
+  //TODO getDetailProduct (1)
+  // const {data:detailProduct,loading:loadingProducts} = useGetProduct(id);
 
   const { handleSubmit,setValue } = methods;
 
+  //
   const fields = useMemo(() => {
     return [
       {
@@ -121,9 +126,18 @@ export function CreateProduct() {
     ];
   }, [categories]);
 
+  // handleSubmit update it
   const onSubmit = (values) => {
     console.log(values);
   };
+//  TODO setDetailGotToFormByHelper (2)
+//   useEffect(() => {
+//      if(detailProduct){
+//          setInitForm(detailProduct,[' ' ,' ', ....  key in detailProduct that want to init form],setValue)
+//      }
+//   }, [detailProduct])
+  
+
   return (
     <Paper sx={{ padding: "24px" }}>
       <FormProvider {...methods}>
@@ -140,7 +154,7 @@ export function CreateProduct() {
                   variant="outlined"
                   style={{ marginBlock: "24px" }}
                 >
-                  Create
+                  Edit
                 </AppButton>
               </Box>
             </Box>

@@ -24,6 +24,7 @@ import { Products } from "./pages/Admin/product";
 import Add from "@mui/icons-material/Add";
 import AdminLayout from "./components/layout/AdminLayout";
 import { CreateProduct } from "./pages/Admin/product/create";
+import { EditProduct } from "./pages/Admin/product/edit";
 
 export const App = () => {
     const [name, setName] = useState("Bán hàng");
@@ -49,6 +50,7 @@ export const App = () => {
                             <Route path="product" element={<Outlet />} >
                                 <Route path="" element={<Products />} index={true} />
                                 <Route path="create" element={<CreateProduct />} />
+                                <Route path="edit/:id" element={<EditProduct />} />
                             </Route>
                         </Route>
                         <Route path="/" element={<Home />} />
