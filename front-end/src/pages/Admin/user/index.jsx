@@ -1,60 +1,44 @@
 import { Box, Grid, Paper } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AppTable from "../../../components/Table";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import {
-  useGetCategories,
-  useGetProductsCount,
-  useGetProductsPagination,
-} from "./api/hooks";
+
 import { AppButton } from "../../../components/Element/Button";
 import { Loading } from "../../../components/Loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../../../app/reducer/usersSlice";
 
-export function Products() {
+export function Users() {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(10);
-  const { data, error, loading } = useGetProductsPagination({
-    offset: page + 1,
-    limit: pageSize,
-  });
-  const { data: categories } = useGetCategories({});
-  const { data: count } = useGetProductsCount({});
+
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.users);
+
   const navigate = useNavigate();
 
   const columns = useMemo(() => {
     return [
-      { field: "name", headerName: "Name", width: 300 },
+      { field: "username", headerName: "User Name", width: 300 },
       {
-        field: "listImages",
-        headerName: "Image",
-        width: 150,
-        renderCell: (values) => {
-          console.log(values);
-          return <img src={values?.value ? values.value[0].imgPath : ""}></img>;
-        },
+        field: "fullname",
+        headerName: "Full Name",
+        width: 250,
       },
-      { field: "description", headerName: "Description", width: 350 },
+      { field: "dateOfBirth", headerName: "Day of birth", width: 350 },
       {
-        field: "cateId",
-        headerName: "Category",
+        field: "address",
+        headerName: "Address",
         width: 200,
-        renderCell: ({ value }) => {
-          return (
-            <span>
-              {(categories || [])?.find((category) => category?.id === value)
-                ?.name || ""}{" "}
-            </span>
-          );
-        },
       },
-      { field: "basePrice", headerName: "Price", width: 150 },
+
       {
-        field: "deal",
-        headerName: "Deal",
+        field: "role",
+        headerName: "Permission",
         width: 150,
         renderCell: ({ value }) => {
-          return <span>{`${+value * 100} %`} </span>;
+          return <span>{value?.name} </span>;
         },
       },
       {
@@ -62,7 +46,7 @@ export function Products() {
         headerName: "Status",
         width: 150,
         renderCell: ({ value }) => {
-          return <span>{value === 1 ? "Đang bán" : "Ngưng bán"} </span>;
+          return <span>{value === 1 ? "Đang hoạt động" : "Đã khóa"} </span>;
         },
       },
       {
@@ -76,7 +60,7 @@ export function Products() {
                 e.stopPropagation();
                 console.log(value);
               }}
-              to={`/dasboard/product/edit/${value}`}
+              to={`/dasboard/user/edit/${value}`}
               style={{ textTransform: "capitalize" }}
             >
               Edit
@@ -85,7 +69,11 @@ export function Products() {
         },
       },
     ];
-  }, [categories]);
+  }, []);
+
+  useEffect(() => {
+    dispatch(getUsers({ offset: page + 1, limit: pageSize }));
+  }, []);
 
   if (loading) return <Loading />;
 
@@ -111,7 +99,7 @@ export function Products() {
               variant="contained"
               startIcon={<AddOutlinedIcon />}
               onClick={() => {
-                navigate("/dashboard/product/create");
+                navigate("/dashboard/user/create");
               }}
               style={{ textTransform: "capitalize" }}
             >
@@ -128,14 +116,14 @@ export function Products() {
       >
         <Paper sx={{ width: "100%", padding: "24px", height: "100%" }}>
           <AppTable
-            data={data || []}
+            data={data?.users}
             columns={columns}
             page={page}
             pageSize={pageSize}
             setPage={setPage}
             setPageSize={setPageSize}
             autoHeight
-            total={count}
+            total={data?.total}
           />
         </Paper>
       </Grid>

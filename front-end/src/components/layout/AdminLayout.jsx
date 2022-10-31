@@ -37,7 +37,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useForm, Controller } from "react-hook-form";
 import { productApi } from "../../api/productApi";
 import { ToastPageChange } from "../Toast";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { NAVIGATIONS } from "../../constants";
 
 const drawerWidth = 240;
 
@@ -112,6 +113,8 @@ export default function AdminLayout({ children, setRerender }) {
   const [cateList, setCateList] = useState([]);
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("User");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -301,11 +304,12 @@ export default function AdminLayout({ children, setRerender }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["User", "Product", "Order"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+          {NAVIGATIONS.map((nav, index) => (
+            <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 onClick={() => {
-                  setTitle(text);
+                  setTitle(nav.title);
+                  navigate(nav.url);
                 }}
                 sx={{
                   minHeight: 48,
@@ -320,9 +324,12 @@ export default function AdminLayout({ children, setRerender }) {
                     justifyContent: "center",
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {nav.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText
+                  primary={nav.title}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
               </ListItemButton>
             </ListItem>
           ))}
